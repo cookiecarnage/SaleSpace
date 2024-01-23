@@ -1,0 +1,41 @@
+:root {
+    --main-color: #eeb36b;
+    --pastel: #ece6ff;
+    --black:#252525;
+    --bg: #121212;
+    --border: .1rem solid rgba(78, 78, 78, 0.3);
+    --font-colour: #252525;
+    --font1: 'Kdam Thmor Pro';
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font1);
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 9rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 5rem;
+}
+
+section {
+    padding: 5rem 7%;
+}
