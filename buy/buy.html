@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--stylesheets-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Kdam+Thmor+Pro&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/Users/testtest/Desktop/MDS273_CAC2/common.css">
+    <link rel="icon" type="image/x-icon" href="xicon.png">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+    <title>Buy | SaleSpace</title>
+
+    <style>
+        header {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            width: device-width;
+            border-bottom: 1px solid #121212;
+            align-items: center;
+            text-align: center;
+            justify-content: space-around;
+            background-color: #fff;
+            flex: 0 0 auto; /* Do not grow or shrink the header */
+            border-bottom: 1px solid #121212;
+            background-color: #fff;
+        }
+
+        header img {
+            height: 90px;
+            padding-top: 2px;
+            cursor: pointer;
+        }
+    
+        header a {
+            justify-content: space-around;
+            text-decoration: none;
+            font-size: 1.7rem;
+            color: #252525;
+        }
+        
+        body {
+            font-family: 'Kdam Thmor Pro';
+            margin: 0;
+            padding: 0;
+            height: 100vh; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filters {
+            background-color: #f5f3ff;
+            padding: 10px;
+            font-size: 1.5rem;
+        }
+
+        .filters input, label {
+            margin: 3px;
+        }
+
+        .filters button {
+            display: inline-block;
+            padding: .5rem 1rem;
+            font-size: 1.4rem;
+            border-radius: 0.5rem; 
+            color: #fff;
+            background: var(--main-color);
+            cursor: pointer;
+        }
+
+        .filters button:hover {
+            letter-spacing: .2rem;
+            background-color: #fbaf28;
+            
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            flex: 1 1 auto;
+            overflow: hidden;
+        }
+
+        .container .map-container {
+            width: 50%;
+        }
+
+        .container .map-container #map {
+            height: 80vh;
+        }
+
+        .container .listings {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .property-card {
+            width: 50%;
+            box-sizing: border-box; 
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        .property-card img {
+            height: 24.5rem;
+            aspect-ratio: 12/9;
+        }
+    </style>
+    
+</head>
+<body>
+    <!--HEADER-->
+    <header>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/buy/buy.html">Buy</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/rent/rent.html">Rent</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/sell/sell.html">Sell</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/home loans/home_loans.html">Home Loans</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/agents/agents.html">Agent Finder</a>
+
+        <img src="logo.png" onclick="redirectToMainPage()">
+
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/rentals/manage_rentals.html">Manage Rentals</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/advertise/advertise.html">Trending</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/help/help.html">Help</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/login/login.html">Sign in</a>
+    </header>
+
+    <div class="filters" id="filters">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location">
+
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price">
+
+        <button onclick="applyFilters()">Apply Filters</button>
+    </div>
+
+    <div class="container" id="container">
+        <div class="map-container" id="map-container">
+            <div class="map" id="map"></div>
+        </div>
+        
+        <div class="listings" id="listings">
+            <!-- Property 1 -->
+            <div class="property-card" id="property-card">
+                <img src="/Users/testtest/Desktop/MDS273_CAC2/photos/french.jpeg">
+                <h3>Charmante Maison</h3>
+                <p>Location: Paris, Île-de-France</p>
+                <p>Price: $500,000</p>
+                <p>Bedrooms: 4 | Bathrooms: 2</p>
+            </div>
+
+            <!-- Property 2 -->
+            <div class="property-card" id="property-card">
+                <img src="/Users/testtest/Desktop/MDS273_CAC2/photos/french2.webp">
+                <h3>Appartement Moderne</h3>
+                <p>Location: Lyon, Auvergne-Rhône-Alpes</p>
+                <p>Price: $300,000</p>
+                <p>Bedrooms: 2 | Bathrooms: 1</p>
+            </div>
+
+            <!-- Property 3 -->
+            <div class="property-card" id="property-card">
+                <img src="/Users/testtest/Desktop/MDS273_CAC2/photos/french3.webp">
+                <h3>Villa avec Jardin</h3>
+                <p>Location: Nice, Provence-Alpes-Côte d'Azur</p>
+                <p>Price: $800,000</p>
+                <p>Bedrooms: 5 | Bathrooms: 3</p>
+            </div>
+
+            <!-- Property 4 -->
+            <div class="property-card" id="property-card">
+                <img src="/Users/testtest/Desktop/MDS273_CAC2/photos/french4.webp">
+                <h3>Maison de Campagne</h3>
+                <p>Location: Bordeaux, Nouvelle-Aquitaine</p>
+                <p>Price: $450,000</p>
+                <p>Bedrooms: 3 | Bathrooms: 2</p>
+            </div>
+
+            <!-- Property 5 -->
+            <div class="property-card" id="property-card">
+                <img src="/Users/testtest/Desktop/MDS273_CAC2/photos/french5.jpg">
+                <h3>Appartement Lumineux</h3>
+                <p>Location: Marseille, Provence-Alpes-Côte d'Azur</p>
+                <p>Price: $350,000</p>
+                <p>Bedrooms: 2 | Bathrooms: 1</p>
+            </div>
+
+            <!-- Property 6 -->
+            <div class="property-card" id="property-card">
+                <img src="/Users/testtest/Desktop/MDS273_CAC2/photos/french6.webp">
+                <h3>Château Historique</h3>
+                <p>Location: Loire Valley, Centre-Val de Loire</p>
+                <p>Price: $1,500,000</p>
+                <p>Bedrooms: 10 | Bathrooms: 5</p>
+            </div>
+
+            <!-- Property 7 -->
+            <div class="property-card" id="property-card">
+                <img src="/Users/testtest/Desktop/MDS273_CAC2/photos/french7.webp">
+                <h3>Chalet en Montagne</h3>
+                <p>Location: Chamonix, Auvergne-Rhône-Alpes</p>
+                <p>Price: $700,000</p>
+                <p>Bedrooms: 4 | Bathrooms: 3</p>
+            </div>
+
+            <!-- Property 8 -->
+            <div class="property-card" id="property-card">
+                <img src="/Users/testtest/Desktop/MDS273_CAC2/photos/french8.webp">
+                <h3>Maison Traditionnelle</h3>
+                <p>Location: Strasbourg, Grand Est</p>
+                <p>Price: $400,000</p>
+                <p>Bedrooms: 3 | Bathrooms: 2</p>
+            </div>
+
+            <!-- Property 9 -->
+            <div class="property-card" id="property-card">
+                <img src="/Users/testtest/Desktop/MDS273_CAC2/photos/french9.webp">
+                <h3>Appartement avec Vue</h3>
+                <p>Location: Cannes, Provence-Alpes-Côte d'Azur</p>
+                <p>Price: $600,000</p>
+                <p>Bedrooms: 3 | Bathrooms: 2</p>
+            </div>
+
+            <!-- Property 10 -->
+            <div class="property-card" id="property-card">
+                <img src="/Users/testtest/Desktop/MDS273_CAC2/photos/french10.webp">
+                <h3>Manoir de Charme</h3>
+                <p>Location: Normandy, Normandie</p>
+                <p>Price: $900,000</p>
+                <p>Bedrooms: 6 | Bathrooms: 4</p>
+            </div>
+
+        </div>
+    </div>
+    
+
+    <script>
+        const map = L.map('map').setView([48.8566, 2.3522], 10); 
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+        }).addTo(map);
+
+        L.marker([48.8566, 2.3522]).addTo(map)
+            .bindPopup('Welcome to Paris!'); // Tooltip text when clicking the marker
+    </script>
+      
+    <!-- PROPERTY CARDS -->  
+    <script>
+        // Fetch data from your Node.js server
+        fetch('/api/properties')
+            .then(response => response.json())
+            .then(data => {
+            const listingsContainer = document.getElementById('listings');
+            data.forEach(property => {
+                const card = document.createElement('div');
+                card.classList.add('property-card');
+                card.innerHTML = `
+                <h3>${property.name}</h3>
+                <p>Location: ${property.location}</p>
+                <p>Price: $${property.price}</p>
+                <p>Bedrooms: ${property.bedrooms} | Bathrooms: ${property.bathrooms}</p>
+                `;
+                listingsContainer.appendChild(card);
+            });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+
+    <script>
+        function redirectToMainPage() {
+            window.location.href = '/Users/testtest/Desktop/MDS273_CAC2/landing/landing.html';
+        }
+    </script>
+  
+    <script src="buy.js"></script>
+
+
+</body>
+</html>
