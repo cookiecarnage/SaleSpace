@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--stylesheets-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Kdam+Thmor+Pro&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/Users/testtest/Desktop/MDS273_CAC2/common.css">
+    <link rel="icon" type="image/x-icon" href="xicon.png">
+
+    <title>Sell | SaleSpace</title>
+
+    <style>
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            display: flex;
+            flex-direction: row;
+            width: device-width;
+            border-bottom: 1px solid #121212;
+            align-items: center;
+            text-align: center;
+            justify-content: space-around;
+            background-color: #fff;
+            z-index: 9999;
+            
+        }
+
+        header img {
+            height: 90px;
+            padding-top: 2px;
+            cursor: pointer;
+        }
+
+        header a {
+            justify-content: space-around;
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: #252525;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        button {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: .9rem 3rem;
+            font-size: 1.7rem;
+            border-radius: 0.5rem; 
+            color: #fff;
+            background: var(--main-color);
+            cursor: pointer;
+        }
+
+        button:hover {
+            letter-spacing: .2rem;
+            background-color: #fbaf28;
+            
+        }
+
+        .heading {
+            text-align: center;
+            color: #643392;
+            text-transform: uppercase;
+            padding-bottom: 5rem;
+            font-size: 4rem;
+        }
+
+        .heading span {
+            color: var(--main-color);
+            text-transform: uppercase;
+        }
+
+        .pagehead-container {
+            height: 500px;
+            background-image: url('sell.jpeg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: #fff;
+            padding-top: 5rem;
+            margin-top: 77px;
+        }
+
+        .pagehead-items {
+            height: 50vh;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .pagehead-items h1 {
+            font-size: 5rem;
+            text-shadow: 2px 2px 7px #000000c6;
+        }
+
+        .sell-options {
+            margin: 2% 8%;
+        }
+
+        .sell-options .options {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 5%;
+            text-align: center;
+        }
+
+        .sell-options .options .option {
+            margin: 0% 4rem;
+        }
+
+        .sell-options .options .option h1 {
+            font-size: 3rem;
+        }
+
+        .sell-options .options .option p {
+            font-size: 2rem;
+        }
+
+        .sell-options .options .option button {
+            display: flex;
+            align-items: center;
+            margin: 2rem auto;
+        }
+
+        .sell-options .sell-image img {
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/buy/buy.html">Buy</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/rent/rent.html">Rent</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/sell/sell.html">Sell</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/home loans/home_loans.html">Home Loans</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/agents/agents.html">Agent Finder</a>
+
+        <img src="logo.png" onclick="redirectToMainPage()">
+
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/rentals/manage_rentals.html">Manage Rentals</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/advertise/advertise.html">Trending</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/help/help.html">Help</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/login/login.html">Sign in</a>
+    </header>
+
+    <section class="pagehead-container" id="pagehead">
+        <div class="pagehead-items">
+            <h1>Sell your home with confidence</h1>
+        </div>
+    </section>
+
+    <section class="sell-options" id="sell-options">
+        <div class="options">
+            <div class="option">
+                <h1>Sell with a partner agent or get a cash offer</h1>
+                <p>SaleSpace helps you sell your home, your way. Easily explore your selling options below and get personalized market value estimates — we can even help you choose the best option when you’re ready.
+                    This experience is currently available in 18 markets across France.</p>
+                <button onclick="redirectToBuyPage()">Explore Locations</button>
+            </div>
+            <div class="sell-image">
+                <img src="yourself.jpg">
+            </div>
+        </div>
+        <div class="options">
+            <div class="sell-image">
+                <img src="agent.jpg">
+            </div>
+            <div class="option">
+                <h1>Sell traditionally with an agent</h1>
+                <p>Not in a market with SaleSpaces' new selling experience? Work with a real estate agent for selling support at every step, including prepping, listing and marketing your home.</p>
+                <button onclick="redirectToAgentPage()">find an agent</button>
+            </div>
+        </div>
+        <div class="options">
+            <div class="option">
+                <h1>Sell your home yourself</h1>
+                <p>Deciding to sell your home yourself is referred to as for-sale-by-owner (FSBO). The FSBO process is similar to traditional selling, but without the help of a real estate agent. In this case, you’re responsible for the home prep, marketing, showings, and negotiations.</p>
+                <button onclick="redirectToLoginPage()">Login to learn more</button>
+            </div>
+            <div class="sell-image">
+                <img src="agent_and.jpg">
+            </div>
+        </div>
+    </section>
+
+
+
+    <script>
+        function redirectToBuyPage() {
+            window.location.href = '/Users/testtest/Desktop/MDS273_CAC2/buy/buy.html';
+        }
+
+        function redirectToLoginPage() {
+            window.location.href = '/Users/testtest/Desktop/MDS273_CAC2/login/login.html';
+        }
+
+        function redirectToAgentPage() {
+            window.location.href = '/Users/testtest/Desktop/MDS273_CAC2/agents/agents.html';
+        }
+    </script>
+</body>
+</html>
