@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--stylesheets-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Kdam+Thmor+Pro&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/Users/testtest/Desktop/MDS273_CAC2/common.css">
+    <link rel="icon" type="image/x-icon" href="xicon.png">
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+    <title>Real Estate Professional Reviews | Salespace</title>
+
+    <style>
+        header {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            width: device-width;
+            border-bottom: 1px solid #121212;
+            align-items: center;
+            text-align: center;
+            justify-content: space-around;
+            background-color: #fff;
+        }
+
+        header img {
+            height: 90px;
+            padding-top: 2px;
+            cursor: pointer;
+        }
+    
+        header a {
+            justify-content: space-around;
+            text-decoration: none;
+            font-size: 1.7rem;
+            color: #252525;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .agent-container {
+            margin: 0vw 8vw;
+            
+            display: flex;
+            flex-direction: row;
+            
+        }
+
+        .agent-container a {
+            font-size: 1.5rem;
+            padding: 8px;
+            text-decoration: none;
+            color: #252525;
+        }
+
+        .agent-container a:hover {
+            color: #643392;
+            text-decoration: 2px underline;
+        }
+
+        .pagehead-container {
+            height: 500px;
+            background-image: url(agents_header.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: #fff;
+            padding-top: 5rem;
+        }
+
+        .pagehead-items {
+            height: 50vh;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .find-agent {
+            margin: 5vw 10vw;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .find-agent h1 {
+            font-size: 2.5rem;
+        }
+
+        .find-agent .sub-find {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 1rem;
+            padding: 20px;
+            font-size: 1.5rem;
+            background-color: #ece6ff;
+        }
+
+        .find-agent .sub-find .search-box .icon {
+            border: .8px solid #643392;
+            border-radius: 5px;
+        }
+
+        .find-agent .sub-find .search-box input {
+            padding: 5px 8px;
+            font-size: 1.3rem;
+            background-color: #ece6ff;
+        }
+
+        .find-agent .sub-find .search-box .bxbx {
+            color: #643392;
+            margin-top: 7px;
+            padding: 0px 8px;
+            font-size: 2rem;
+            font-weight: 1800;
+            cursor: pointer;
+        }
+
+        .find-agent .sub-find .search-box .bxbx:hover {
+            color: #fbaf28;
+            transform: scale(1.2);
+        }
+
+        .break img {
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+    <body>
+    
+        <header>
+            <a href="/Users/testtest/Desktop/MDS273_CAC2/buy/buy.html">Buy</a>
+            <a href="/Users/testtest/Desktop/MDS273_CAC2/rent/rent.html">Rent</a>
+            <a href="/Users/testtest/Desktop/MDS273_CAC2/sell/sell.html">Sell</a>
+            <a href="/Users/testtest/Desktop/MDS273_CAC2/home loans/home_loans.html">Home Loans</a>
+            <a href="/Users/testtest/Desktop/MDS273_CAC2/agents/agents.html">Agent Finder</a>
+    
+            <img src="logo.png" onclick="redirectToMainPage()">
+    
+            <a href="/Users/testtest/Desktop/MDS273_CAC2/rentals/manage_rentals.html">Manage Rentals</a>
+            <a href="/Users/testtest/Desktop/MDS273_CAC2/advertise/advertise.html">Trending</a>
+            <a href="/Users/testtest/Desktop/MDS273_CAC2/help/help.html">Help</a>
+            <a href="/Users/testtest/Desktop/MDS273_CAC2/login/login.html">Sign in</a>
+        </header>
+
+        <div class="agent-container">
+            <a href="#">Agents</a>
+            <a href="#">Home Improvement</a>
+            <a href="#">Property Management</a>
+            <a href="#">Builder</a>
+            <a href="#">Inspectors</a>
+            <a href="#">Photographers</a>
+        </div>
+    
+        <!--LANDING PAGE HEAD-->
+        <section class="pagehead-container" id="pagehead">
+            <div class="pagehead-items">
+                <br>
+                
+            </div>
+        </section>
+
+        <div class="find-agent">
+            <h1>Find an Agent</h1>
+            <div class="sub-find">
+                <div class="search-box">
+                    <h3>Location</h3>
+                    <div class="icon">
+                        <input type="search" name="" id="search-input" placeholder="City/Zip">
+                        <ion-icon name="search" class="bxbx"></ion-icon>
+                    </div>
+                </div>
+                <div class="search-box">
+                    <h3>Name</h3>
+                    <div class="icon">
+                        <input type="search" name="" id="search-input" placeholder="Agent Name">
+                        <ion-icon name="search" class="bxbx"></ion-icon>
+                    </div>
+                </div>
+                <div class="search-box">
+                    <h3>Specialities</h3>
+                    <div class="icon">
+                        <input type="search" name="" id="search-input" placeholder="Any">
+                        <ion-icon name="search" class="bxbx"></ion-icon>
+                    </div>
+                </div>
+                <div class="search-box">
+                    <h3>Languages</h3>
+                    <div class="icon">
+                        <input type="search" name="" id="search-input" placeholder="English">
+                        <ion-icon name="search" class="bxbx"></ion-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="break">
+            <img src="agent.png">
+        </div>
+
+        <script>
+            function redirectToMainPage() {
+                window.location.href = "/Users/testtest/Desktop/MDS273_CAC2/landing/landing.html"
+            }
+        </script>
+</body>
+</html>
