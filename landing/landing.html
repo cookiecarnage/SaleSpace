@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Kdam+Thmor+Pro&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/Users/testtest/Desktop/MDS273_CAC2/common.css">
+
+    <link rel="icon" type="image/x-icon" href="xicon.png">
+    <title>SaleSpace</title>
+
+    <style>
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            display: flex;
+            flex-direction: row;
+            width: device-width;
+            border-bottom: 1px solid #121212;
+            align-items: center;
+            text-align: center;
+            justify-content: space-around;
+            background-color: #fff;
+            
+        }
+
+        header img {
+            height: 90px;
+            padding-top: 2px;
+        }
+    
+        header a {
+            justify-content: space-around;
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: #252525;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        button {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: .9rem 3rem;
+            font-size: 1.7rem;
+            border-radius: 0.5rem; 
+            color: #fff;
+            background: var(--main-color);
+            cursor: pointer;
+        }
+
+        button:hover {
+            letter-spacing: .2rem;
+            background-color: #fbaf28;
+            
+        }
+
+        .heading {
+            text-align: center;
+            color: #643392;
+            text-transform: uppercase;
+            padding-bottom: 5rem;
+            font-size: 4rem;
+        }
+
+        .heading span {
+            color: var(--main-color);
+            text-transform: uppercase;
+        }
+
+        .pagehead-container {
+            height: 500px;
+            background-image: url('land_bg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: #fff;
+            padding-top: 5rem;
+            margin-top: 90px;
+        }
+
+        .pagehead-items {
+            height: 50vh;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .pagehead-items h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 7px #000000c6;
+        }
+        
+        .icons .search-box {
+            max-width: 1000px;
+            width: 800px;
+            display: flex;
+            align-items: center;
+            font-size: 2.5rem;
+            column-gap: 0.7rem;
+            padding: 15px 15px;
+            background: rgb(240, 240, 240);
+            border-radius: 4rem;
+            margin-right: 1rem;
+            box-shadow: 0px 0px 10px 2px #0000007b;
+        }
+
+        .icons .search-box .bxbx {
+            font-size: 1.5rem;
+            color: #643392;
+        }
+
+        .icons .search-box .bxbx:hover {
+            color: #fbaf28;
+            cursor: pointer;
+            text-shadow: 2px 2px 2px var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--font-colour);
+            background: transparent;
+            font-size: 0.932rem;
+        }
+
+        .cta {
+            max-width: 1280;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .cta .sign-in-text {
+            height: 40vh;
+            display: flex;
+            font-size: 2rem;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta .sign-in-text p {
+            
+            font-size: 1.95rem;
+            font-family: cursive;
+        }
+
+        .cta .sign-in-images {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 1.2rem;
+        }
+
+        .cta .sign-in-images img {
+            height: 250px;
+            width: 280px;
+            object-fit: cover;
+            opacity: 0.6;
+            border-radius: 5px;
+            
+        }
+
+        .about-us .row {
+            display: flex;
+            align-items: center;
+            background: var(--black);
+            gap: 1rem;
+            flex-wrap: wrap;
+            box-shadow: 0px 0px 20px 2px #0000003a;
+        }
+
+        .about-us .row .image {
+            flex: 1 1 25rem;
+        }
+
+        .about-us .row .image img {
+            width: 100%;
+            padding: 10%;
+        }
+
+        .about-us .row .content {
+            flex: 1 1 45rem;
+            padding: 2rem;
+            color: #ccc;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .about-us .row .content h3 {
+            font-size: 2.5rem;
+            color: #ccc;
+            padding: 1rem 0;
+            line-height: 1.8;
+        }
+
+        .about-us .row .content p {
+            margin-right: 4rem;
+            font-size: 1.5rem;
+            text-align: justify;
+        }
+
+        .services {
+            background: radial-gradient(ellipse, #ece6ff, #fff);
+        }
+
+        .services .box-container {
+            max-width: 1280px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap: 1.5rem;
+            
+        }
+
+        .services .box-container .box {
+            height: 75vh;
+            width: 27vw;
+            text-align: center;
+            border-radius: 5px;
+            border: var(--border);
+            padding: 2rem;
+            box-shadow: 0px 0px 15px 2px #00000079;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .services .box-container .box .icons a {
+            height: 5rem;
+            width: 5rem;
+            line-height: 5rem;
+            font-size: 2rem;
+            border: var(--border);
+            color: #fff;
+            margin: .3rem;
+        }
+
+        .services .box-container .box .icons a:hover {
+            background: var(--main-color);
+        }
+
+        .services .box-container .box .image {
+            padding: 2.5rem 0; 
+        }
+
+        .services .box-container .box .image img {
+            height: 20rem; 
+            
+            padding: 10px;
+        }
+
+        .services .box-container .box .content h1 {
+            color: #121212;
+            font-size: 2.5rem;
+            padding: 10px;
+        }
+
+        .services .box-container .box .content p {
+            color: #121212;
+            font-size: 1.5rem;
+            padding: 10px;
+        }
+
+        .services .box-container .box .content .stars {
+            padding: 1.5rem;
+        }
+
+        .services .box-container .box .content .stars i {
+            font-size: 1.7rem;
+            color: var(--main-color);
+        }
+
+        .services .box-container .box .content .price {
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        .services .box-container .box .content .price span {
+            text-decoration: line-through;
+            font-weight: lighter;
+            font-size: 1.5rem;
+        }
+
+        .services .box-container .box:hover {
+            transform: scale(1.08);
+            box-shadow: 0px 0px 40px 5px #00000079;
+        }
+
+        .services .box-container .box-hovered {
+            box-shadow: none;
+        }
+
+        .review .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap: 1.5rem;
+        }
+
+        .review .box-container .box {
+            border: var(--border);
+            text-align: center;
+            padding: 3rem 2rem;
+            box-shadow: 0px 0px 18px 1px #0000007a;
+        }
+
+        .review .box-container .box img {
+            height: 15rem; 
+        }
+
+        .review .box-container .box p {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: #121212;
+            padding: 2rem 0;
+        }
+
+        .review .box-container .box .user {
+            height: 7rem;
+            width: 7rem;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .review .box-container .box h3 {
+            padding: 1rem 0;
+            font-size: 2rem;
+            color: #252525;
+        }
+
+        .review .box-container .box .stars i {
+            font-size: 2rem;
+            color: var(--main-color);
+        }
+
+        .contact {
+            background: radial-gradient(ellipse, #ece6ff, #fff);
+        }
+
+        .contact .row {
+            display: flex;
+            background: var(--black);
+            flex-wrap: wrap;
+            gap: 1rem;
+            box-shadow: 0px 0px 15px 2px #00000079;
+        }
+
+        .contact .row .map {
+            flex: 1 1 45rem;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .contact .row form {
+            flex: 1 1 45rem;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .contact .row form h3 {
+            text-transform: uppercase;
+            font-size: 3.5rem;
+            color: #fff;
+        }
+
+        .contact .row form .inputBox {
+            display: flex;
+            align-items: center;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            background: var(--bg);
+            border: var(--border);
+        }
+
+        .contact .row form .inputBox span {
+            color: #fff;
+            font-size: 2rem;
+            padding-left: 2rem;
+        }
+
+        .contact .row form .inputBox input {
+            width: 100%;
+            padding: 2rem;
+            font-size: 1.7rem;
+            color: #fff;
+            text-transform: none;
+            background: none;
+        }
+
+        /* FOOTER WAVES */
+
+        @keyframes wave {
+        from, to {
+            transform: translate(-50%, 0%);
+        }
+        
+        50% {
+            transform: translate(-50%, -20%);
+        }
+        }
+
+        #bubble-wrapper {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            bottom: 0px;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bubble {
+            height: max(300px, 30vw);
+            width: max(300px, 30vw);
+            background: radial-gradient(ellipse, #ece6ff, #643392);
+            
+            border-radius: 100%;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        @media(prefers-reduced-motion) {
+        .bubble {
+            animation: none;
+            display: none;
+        }
+        }
+
+        .footer {
+            background: rgb(255, 255, 255);
+            background: radial-gradient(ellipse, #ece6ff, #fff);
+            text-align: center;
+        }
+
+        .footer img {
+            height: 8rem;
+            padding-bottom: 0px;
+        }
+
+        .footer .share {
+            padding: 1rem 0;
+        }
+
+        .footer .share a {
+            height: 5rem;
+            width: 5rem;
+            line-height: 5rem;
+            font-size: 2rem;
+            color: var(--font-colour);
+            border: var(--border);
+            margin: .3rem;
+            border-radius: 50%;
+        }
+
+        .footer .share a:hover {
+            background-color: var(--main-color) !important;
+        }
+
+        .footer .links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 2rem 0;
+            gap: 1rem;
+        }
+
+        .footer .links a {
+            padding: .7rem 2rem;
+            color: var(--font-colour);
+            border: var(--border);
+            font-size: 1.5rem;
+        }
+
+        .footer .links a:hover {
+            background-color: var(--main-color) !important;
+        }
+
+        .footer .credit {
+            font-size: 1.5rem;
+            color: var(--font-colour);
+            font-weight: lighter;
+            padding: 1.5rem;
+        }
+
+        .footer .credit span {
+            color: var(--main-color);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!--LANDING PAGE HEADER-->
+    <header>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/buy/buy.html">Buy</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/rent/rent.html">Rent</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/sell/sell.html">Sell</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/home loans/home_loans.html">Home Loans</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/agents/agents.html">Agent Finder</a>
+
+        <img src="logo.png" onclick="redirectToMainPage()">
+
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/rentals/manage_rentals.html">Manage Rentals</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/advertise/advertise.html">Trending</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/help/help.html">Help</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/login/login.html">Sign in</a>
+    </header>
+
+    <!--LANDING PAGE HEAD-->
+    <section class="pagehead-container" id="pagehead">
+        <div class="pagehead-items">
+            <h1>Agents. Tours. Loans. Homes.</h1>
+            <br>
+            <div class="icons">
+                <div class="search-box">
+                    <input type="search" name="" id="search-input" placeholder="Enter a pincode">
+                    <ion-icon name="search" class="bxbx"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--SIGN IN CTA-->
+    <section class="cta" id="cta">
+        <div class="sign-in-text">
+            <h3>Get home reccomendations</h3>
+            <p>sign in for a personalised experience</p>
+            <button type="submit" onclick="redirectToLoginPage()">Sign in</button>
+        </div>
+        <div class="sign-in-images">
+            <img src="land1.png" draggable="false">
+            <img src="land2.png" draggable="false">
+            <img src="land3.png" draggable="false">
+        </div>
+    </section>
+
+    <!--ABOUT US-->
+    <section class="about-us" id="about-us">
+        <h1 class="heading"><span> about </span>us</h1>
+            <div class="row">
+                <div class="image" alt="">
+                    <img src="about.png" alt="">
+                </div>
+    
+                <div class="content">
+                    <h3>What makes us perfect for you?</h3>
+                    <p>Discover your dream home with SaleSpace – your trusted real estate companion. We're dedicated to simplifying property transactions, ensuring your journey is seamless. Let us guide you through the process and turn your vision of a perfect space into reality</p>
+                    <button onclick="redirectToLoginPage()">Learn more</button>
+                </div>
+            </div>
+    </section>
+
+    <!--SERVICES-->
+    <section class="services" id="services">
+        <h1 class="heading"> our <span>services</span></h1>
+        <div class="box-container">
+
+            <div class="box" id="box" onmouseover="hoverBox(this)" onmouseout="unhoverBox(this)">
+                <div class="content">
+                    <div class="image">
+                        <img src="buy.png" alt="Product Image" id="productImage" onclick="">
+                    </div>
+                    <h1>Buy a home</h1>
+                    <p>Find your place with an immersive photo experience and the most listings, including things you won’t find anywhere else.</p>
+                    <button onclick="redirectToBuyPage()">Browse homes</button>
+                </div>
+            </div>
+
+            <div class="box" id="box" onmouseover="hoverBox(this)" onmouseout="unhoverBox(this)">
+                <div class="content">
+                    <div class="image">
+                        <img src="rent.png" alt="Product Image" id="productImage" onclick="">
+                    </div>
+                    <h1>Rent a home</h1>
+                    <p>We’re creating a seamless online experience – from shopping on the largest rental network, to applying, to paying rent.</p>
+                    <button onclick="redirectToRentPage()">Find Rentals</button>
+                </div>
+            </div>
+
+            <div class="box" id="box" onmouseover="hoverBox(this)" onmouseout="unhoverBox(this)">
+                <div class="content">
+                    <div class="image">
+                        <img  src="sell.png" alt="Product Image" id="productImage" onclick="">
+                    </div>
+                    <h1>Sell a home</h1>
+                    <p>No matter what path you take to sell your home, we can help you navigate a successful sale.</p>
+                    <button onclick="redirectToSellPage()">See your options</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="review" id="review">
+        <h1 class="heading"> custormer <span>reviews</span></h1>
+        <div class="box-container">
+            <div class="box">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>SaleSpace made finding my dream home a breeze! The user-friendly interface and comprehensive property listings allowed me to narrow down options quickly. The real-time map view was a game-changer, making it easy to visualize the locations. Thanks, SaleSpace, for simplifying the home-buying process.</p>
+                <img src="users/user1.jpg" class="user" alt="">
+                <h3>frank taylor</h3>
+                
+            </div>
+
+            <div class="box">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>As a first-time homebuyer, SaleSpace provided invaluable assistance. The filters helped me refine my search, and the detailed property cards gave me all the information I needed. The responsive customer support team was a huge plus. SaleSpace truly exceeded my expectations.</p>
+                <img src="users/user2.jpg" class="user" alt="">
+                <h3>Amy Bowe</h3>
+                
+            </div>
+
+            <div class="box">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>SaleSpace is a one-stop solution for real estate needs. The map feature helped me explore neighborhoods, and the property listings were up-to-date. The platform's versatility, from buying to renting, makes it my go-to for any property-related queries. Kudos to SaleSpace for an exceptional service!</p>
+                <img src="users/user3.jpg" class="user" alt="">
+                <h3>Jean Ipsem</h3>
+                
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h1 class="heading"> <span>contact </span>us</h1>
+        <div class="row">
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.536929320675!2d2.344047315678583!3d48.
+87504837929001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f2c6d02e12d%3A0x9a05a50e9a51c1f9!2s42%20Rue%20Cadet%2C%2075009%20Paris%2C%20France!5e0!3m2!1sen!2sin!4v1701192765726!5m2!1sen!2sin"
+allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <form action="">
+                <h3>get in touch</h3>
+                <div class="inputBox">
+                    <span class="fas fa-user"></span>
+                    <input type="text" placeholder="name">
+                </div>
+                <div class="inputBox">
+                    <span class="fas fa-envelope"></span>
+                    <input type="email" placeholder="email">
+                </div>
+                <div class="inputBox">
+                    <span class="fas fa-phone"></span>
+                    <input type="number" placeholder="number">
+                </div>
+                <button>contact now</button>
+            </form>
+        </div>
+            
+    </section>
+
+    <br><br><br><br><br><br>
+
+    <!--LANDING PAGE FOOTER-->
+    <img style="width: 100%; padding: 0; margin-bottom: -0.5%;" src="footer.png">
+    
+    <div id="bubble-wrapper"></div>
+
+    <section class="footer">
+        
+        <div class="share"> 
+                <a href="#" class="fab fa-facebook"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+                <a href="#" class="fab fa-pinterest"></a>
+        </div>
+
+        <div class="links">
+            <a href="#">home</a>
+            <a href="#about-us">about</a>
+            <a href="#services">services</a>
+            <a href="#review">reviews</a>
+            <a href="#contact">contact</a>
+        </div>
+
+        <img src="logo.png">
+
+        <div class="credit">created by <span>Tanya Teresse</span> | &COPY; all rights reserved.</div>
+    <br><br><br><br>
+    </section>
+    
+
+    
+
+<script>
+    function hoverBox(box) {
+        // Add a class to the hovered box
+        box.classList.add('box-hovered');
+
+        // Apply box-shadow: none; to all other boxes
+        var allBoxes = document.querySelectorAll('.box');
+        allBoxes.forEach(function (otherBox) {
+            if (otherBox !== box) {
+                otherBox.style.boxShadow = 'none';
+            }
+        });
+    }
+
+    function unhoverBox(box) {
+        // Remove the class from the hovered box
+        box.classList.remove('box-hovered');
+
+        // Restore the default box-shadow for all boxes
+        var allBoxes = document.querySelectorAll('.box');
+        allBoxes.forEach(function (otherBox) {
+            otherBox.style.boxShadow = '';
+        });
+    }
+
+    // FOOTER WAVES
+    const wrapper = document.getElementById("bubble-wrapper");
+
+    const animateBubble = x => {  
+    const bubble = document.createElement("div");
+    
+    bubble.className = "bubble";
+    bubble.style.left = `${x}px`;
+    
+    wrapper.appendChild(bubble);
+    
+    setTimeout(() => wrapper.removeChild(bubble), 2000);
+    }
+
+    const footer = document.querySelector('.footer');
+    footer.addEventListener('mousemove', e => animateBubble(e.clientX));
+
+    
+</script>
+
+    <script>
+        function redirectToLoginPage() {
+            window.location.href = "/Users/testtest/Desktop/MDS273_CAC2/login/login.html"
+        }
+
+        function redirectToBuyPage() {
+            window.location.href = "/Users/testtest/Desktop/MDS273_CAC2/buy/buy.html"
+        }
+
+        function redirectToRentage() {
+            window.location.href = "/Users/testtest/Desktop/MDS273_CAC2/rent/rent.html"
+        }
+
+        function redirectToSellPage() {
+            window.location.href = "/Users/testtest/Desktop/MDS273_CAC2/sell/sell.html"
+        }
+    </script>
+
+</body>
+</html>
