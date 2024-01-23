@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Kdam+Thmor+Pro&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="/Users/testtest/Desktop/MDS273_CAC2/common.css">
+
+    <link rel="icon" type="image/x-icon" href="xicon.png">
+    <title>Help | SaleSpace</title>
+
+    <style>
+        header {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            width: device-width;
+            border-bottom: 1px solid #121212;
+            align-items: center;
+            text-align: center;
+            justify-content: space-around;
+            background-color: #fff;
+        }
+
+        header img {
+            height: 90px;
+            padding-top: 2px;
+            padding-right: 500px;
+        }
+    
+        header a {
+            
+            justify-content: space-around;
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: #252525;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .pagehead-container {
+            height: 500px;
+            background-image: url(/Users/testtest/Desktop/MDS273_CAC2/photos/sean-pollock-PhYq704ffdA-unsplash.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: #fff;
+            padding-top: 5rem;
+        }
+
+        .pagehead-items {
+            height: 50vh;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pagehead-items h1 {
+            font-size: 4rem;
+            text-shadow: 2px 2px 7px #000000c6;
+        }
+
+        .pagehead-items p {
+            font-size: 2.7rem;
+            text-shadow: 2px 2px 7px #000000c6;
+        }
+        
+        .icons .search-box {
+            max-width: 1000px;
+            width: 800px;
+            display: flex;
+            align-items: center;
+            font-size: 2.5rem;
+            column-gap: 0.7rem;
+            padding: 15px 15px;
+            background: rgb(240, 240, 240);
+            border-radius: 4rem;
+            margin-right: 1rem;
+            box-shadow: 0px 0px 10px 2px #00000058;
+        }
+
+        .icons .search-box .bxbx {
+            font-size: 1.5rem;
+            color: #643392;
+        }
+
+        .icons .search-box .bxbx:hover {
+            color: var(--main-colour);
+            cursor: pointer;
+            text-shadow: 2px 2px 2px var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--font-colour);
+            background: transparent;
+            font-size: 0.932rem;
+        }
+
+        button {
+            margin: 1rem 1rem;
+            display: inline-block;
+            padding: .9rem 4rem;
+            font-size: 1.7rem;
+            border-radius: 0.5rem; 
+            color: #fff;
+            background: var(--main-color);
+            cursor: pointer;
+        }
+
+        button:hover {
+            letter-spacing: .2rem;
+            background-color: #fbaf28;
+            border-radius: 40px;
+        }
+
+        .user-type {
+            display: grid;
+            grid-template-columns: auto auto auto;
+        }
+
+        .grid-item {
+            color: #252525;
+            background-color: transparent;
+            border: 1px solid #643392;
+            padding: 20px;
+            font-size: 1.7rem;
+            text-align: center;
+            box-shadow: 0px 0px 2px 1px #00000058;
+        }
+
+        hr {
+            background-color: #121212;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #000, transparent);
+        }
+
+        .footer {
+            margin: 1rem;
+            padding: 1rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            gap: 7.5rem;
+        }
+
+        .footer a {
+            font-size: 1.5rem;
+            color: #252525;
+            font-weight: 100;
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <header>
+        <img src="logo.png" onclick="redirectToMainPage()">
+
+        <a href="#">Submit a request</a>
+        <a href="#">Sign in</a>
+    </header>
+
+    <!--LANDING PAGE HEAD-->
+    <section class="pagehead-container" id="pagehead">
+        <div class="pagehead-items">
+            <h1>At your service!</h1>
+            <p>Here to make all your wishes come true and provide 24/7 support</p>
+        </div>
+    </section>
+
+    <section class="user-type">
+        <button class="grid-item">Agents</button>
+        <button class="grid-item">Lenders</button>
+        <button class="grid-item">Home Loans</button>
+        <button class="grid-item">Rentals</button>
+        <button class="grid-item">Homebuyers</button>
+        <button class="grid-item">Homeowners</button>
+        <button class="grid-item">Home Sellers</button>
+        <button class="grid-item">Privacy</button>
+        <button class="grid-item">Mobile Apps</button>
+    </section>
+
+    &nbsp;
+
+    <hr>
+
+    <section class="footer">
+        <a href="#">Help Center</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Language</a>
+    </section>
+
+</body>
+</html>
