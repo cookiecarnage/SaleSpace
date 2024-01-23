@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--stylesheets-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Kdam+Thmor+Pro&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/Users/testtest/Desktop/MDS273_CAC2/common.css">
+    <link rel="icon" type="image/x-icon" href="xicon.png">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <title>Home Loans | SaleSpace</title>
+
+    <style>
+
+        header {
+            display: flex;
+            flex-direction: row;
+            width: device-width;
+            border-bottom: 1px solid #121212;
+            align-items: center;
+            text-align: center;
+            justify-content: space-around;
+            background-color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        header img {
+            height: 90px;
+            padding-top: 2px;
+            cursor: pointer;
+        }
+    
+        header a {
+            justify-content: space-around;
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: #252525;
+        }
+
+        body {
+            font-family: 'Kdam Thmor Pro';
+            margin: 0;
+            padding: 0;
+            position: relative;
+            height: 100vh;
+            background-color: #f1edfd;
+        }
+
+        .heading {
+            text-align: center;
+            color: #643392;
+            text-transform: uppercase;
+            padding-bottom: 5rem;
+            font-size: 4rem;
+        }
+
+        .heading span {
+            color: var(--main-color);
+            text-transform: uppercase;
+        }
+
+        .pagehead-container {
+            height: 500px;
+            background-image: url('loans.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: #fff;
+            padding-top: 5rem;
+            margin-top: 90px;
+        }
+
+        .pagehead-items {
+            height: 50vh;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .pagehead-items h1 {
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 7px #000000c6;
+        }
+
+        .pagehead-container p {
+            font-size: 2rem;
+            text-shadow: 2px 2px 7px #000000c6;
+
+        }
+
+        .calculator-container {
+            display: relative;
+            align-items: center;
+            justify-content: center;
+            margin: 0% 20%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator-container h1{
+            font-size: 3rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: .9rem 3rem;
+            font-size: 1.7rem;
+            border-radius: 0.5rem; 
+            color: #fff;
+            background: var(--main-color);
+            cursor: pointer;
+        }
+
+        button:hover {
+            
+            background-color: #fbaf28;
+            z-index: 9999;
+        }
+
+        #resultContainer {
+            display: none;
+            
+        }
+
+        h2 {
+            color: #643392;
+            margin-top: 0;
+        }
+
+        .break {
+            margin: 5% 20%;
+        }
+
+        .break h1 {
+            font-size: 3.9rem;
+        }
+        .break h2 {
+            font-size: 2.25rem;
+        }
+
+        /* Add these lines at the end of the file */
+        #loanAmountSlider {
+            margin-bottom: 15px;
+        }
+
+        #loanAmountSlider {
+            margin-bottom: 15px;
+        }
+
+        #affordabilityChart {
+            display: block;
+            width: 400px; /* Adjust the width as needed */
+            height: 200px; /* Adjust the height as needed */
+        }
+
+        .form {
+            display: flex;
+            flex-direction: row;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/buy/buy.html">Buy</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/rent/rent.html">Rent</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/sell/sell.html">Sell</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/home loans/home_loans.html">Home Loans</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/agents/agents.html">Agent Finder</a>
+
+        <img src="logo.png" onclick="redirectToMainPage()">
+
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/rentals/manage_rentals.html">Manage Rentals</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/advertise/advertise.html">Trending</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/help/help.html">Help</a>
+        <a href="/Users/testtest/Desktop/MDS273_CAC2/login/login.html">Sign in</a>
+    </header>
+
+    <!--LANDING PAGE HEAD-->
+    <section class="pagehead-container" id="pagehead">
+        <div class="pagehead-items">
+            <h1>There's a home for everyone</h1>
+            <br>
+            <p>and we can help you find the perfect one for you!</p>
+        </div>
+    </section>
+
+    <div class="break">
+        <h1>A one-stop shop for financing your next home</h1>
+        <h2>Whether you're just getting started or ready to make an offer, we're here to help.</h2>
+    </div>
+
+    <div class="calculator-container">
+        
+        <h1>Affordability Calculator</h1><br>
+        <form id="affordabilityForm" class="form">
+            <div class="numbers">
+                <input type="hidden" id="loanAmount">
+
+                <label for="annualIncome">Annual income</label>
+                <input type="number" id="annualIncome" placeholder="Enter your annual income" required>
+
+                <label for="monthlyDebts">Monthly debts</label>
+                <input type="number" id="monthlyDebts" placeholder="Enter your monthly debts" required>
+
+                <label for="downPayment">Down payment</label>
+                <input type="number" id="downPayment" placeholder="Enter your down payment" required>
+
+                <button type="button" onclick="calculateAffordability()">Calculate</button>
+
+                
+            </div>
+
+            <div class="graph">
+                <div id="resultContainer">
+                    <p>You can afford a house up to:</p>
+                    <h2 id="affordabilityAmount"></h2>
+                    <p>Based on your income, a house at this price should fit comfortably within your budget.</p>
+                    <p id="monthlyPayment"></p>
+                </div>
+                <!-- <label for="loanAmountSlider">Loan Amount Slider:</label>
+                <div id="loanAmountSlider"></div> -->
+                <canvas id="affordabilityChart"></canvas>
+            </div>
+        </form>
+    </div>
+
+    <br><br><br>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <script>
+        $(function () {
+            $("#loanAmountSlider").slider({
+                range: "min",
+                value: 100000,
+                min: 10000,
+                max: 500000,
+                step: 10000,
+                slide: function (event, ui) {
+                    $("#loanAmount").val(ui.value);
+                    calculateAffordability();
+                }
+            });
+
+            // Set initial value of the loan amount input
+            $("#loanAmount").val($("#loanAmountSlider").slider("value"));
+        });
+
+        const ctx = document.getElementById('affordabilityChart').getContext('2d');
+
+        const data = {
+            labels: ['Affordability'],
+            datasets: [{
+                label: 'Affordability',
+                data: [0], // Initial value
+                backgroundColor:  ['#d0c2ff'],
+                borderColor: ['#643392'],
+                borderWidth: 1,
+                fill: 'origin' // Fill from the origin (bottom) to the dataset
+
+            }]
+        };
+
+        const options = {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100
+                }
+            }
+        };
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: options
+        });
+
+        function calculateAffordability() {
+            const annualIncome = parseFloat(document.getElementById('annualIncome').value);
+            const monthlyDebts = parseFloat(document.getElementById('monthlyDebts').value);
+            const downPayment = parseFloat(document.getElementById('downPayment').value);
+
+            const affordabilityAmount = (annualIncome / 12) * 3; // Adjust the multiplier based on your criteria
+            const monthlyPayment = affordabilityAmount / 30; // Assuming a 30-year mortgage
+
+            document.getElementById('affordabilityAmount').innerText = `$${affordabilityAmount.toFixed(2)}`;
+            document.getElementById('monthlyPayment').innerText = `$${monthlyPayment.toFixed(2)}/mo`;
+
+            document.getElementById('resultContainer').style.display = 'block';
+
+            // Update the Chart.js dataset
+            const chart = Chart.getChart('affordabilityChart');
+            const affordabilityPercentage = (affordabilityAmount / 300000) * 100; // Adjust max affordability value as needed
+            chart.data.datasets[0].data = [affordabilityPercentage];
+            chart.update();
+        }
+    </script>
+    <script>
+        function redirectToMainPage() {
+            window.location.href = '/Users/testtest/Desktop/MDS273_CAC2/landing/landing.html';
+        }
+    </script>
+
+</body>
+</html>
